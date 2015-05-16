@@ -111,10 +111,15 @@ catkin_package(
 # include_directories(include)
 
 ## Declare a cpp library
-# add_library(coverage
-#  src/${PROJECT_NAME}/coverage.cpp
-# )
-
+ add_library(coverage
+   src/${PROJECT_NAME}/coverage.cpp
+ )
+ add_library(patrolling
+   src/${PROJECT_NAME}/patrolling.cpp
+ )
+ add_library(graphs
+   src/${PROJECT_NAME}/graphs.cpp
+ )
 ## Declare a cpp executable
 # add_executable(coverage_node src/coverage_node.cpp)
 
