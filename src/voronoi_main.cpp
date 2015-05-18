@@ -42,12 +42,14 @@ void createEnv(const swarm_simulator::obstacleList msg){
 	vector< vector<Point> > bestpatrol=pat_obj.GetBestPatrol();
 	vector<coverage::path> publish_path=vector<coverage::path>(n_agents);
 	coverage::point publish_point;
-	for(int i=0;i<n_agents;i++)
-	{
-		for(vector<Point>::iterator it2=bestpatrol[i].begin();it2!=bestpatrol[i].end();it2++)
+	for(int i = 0; i < n_agents; i++)
+	{	
+		double center_x = -5 + 10 * (i % 2); //0, 1, 0, 1
+		double center_y = -5 + 10 * (i > 1); //0, 0, 1, 1  
+		for(int j = 0; j < 4; ++j)
 		{
-			publish_point.x=(double)((*it2).x)/20.0-12.0;
-			publish_point.y=(double)((*it2).y)/20.0-12.0;
+			publish_point.x= center_x - 2.5 + 5 * (j % 2);
+			publish_point.y= center_y - 2.5 + 5 * (j > 1);
 			publish_path[i].parray.push_back(publish_point);
 		}
 	}
